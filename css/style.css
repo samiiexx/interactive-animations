@@ -1,0 +1,185 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.hidden {
+    display: none;
+}
+
+hp-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 100vw;
+    height: 100vh;
+}
+
+hp-presentation > hp-slide {
+    display: none;
+}
+
+hp-presentation>hp-slide.active {
+    display: flex;
+}
+
+hp-presentation {
+    display: block;
+    border: 3px solid #000;
+    border-radius: 1rem;
+    background-color: #fff;
+    width: 70vmin;
+    height: 70vmin;
+}
+
+hp-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    margin: 10%;
+    font-size: 5vmin;
+    text-align: center;
+}
+
+hp-chooser {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 20vmin;
+}
+
+hp-chooser.fixed {
+    height: auto;
+}
+
+hp-chooser * {
+    max-width: 20%;
+    margin: 5% 2.5%;
+}
+
+hp-chooser.chosen>*.chosen{
+    max-width: 30%;
+}
+
+hp-chooser.fixed>*.chosen{
+    max-width: 40%;
+    animation: chosen-fixed .5s linear;
+}
+
+hp-chooser.chosen.animate>*.chosen{
+    animation: chosen .5s ease linear;
+}
+
+hp-chooser.chosen > *:not(.chosen){
+    max-width: 16.6%;
+    opacity: 0.25;
+}
+
+hp-chooser.fixed>*:not(.chosen){
+    max-width: 0%;
+    opacity: 0.25;
+    /* display: none; */
+    animation: not-chosen-fixed .5s linear;
+}
+
+hp-learn {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  hp-learn hp-learn-no, hp-learn hp-learn-yes {
+    max-width: 20%;
+  }
+  
+  hp-learn img {
+    max-width: 40%;
+    /* margin: 10%; */
+    transition-property: max-width;
+    transition-duration: .1s;
+  }
+  
+  hp-learn-no, hp-learn-yes {
+    visibility: hidden;
+  }
+
+  .learn-yes hp-learn-yes {
+      visibility: visible;
+      color: red;
+  }
+
+  .learn-no hp-learn-no {
+      visibility: visible;
+      color: orange;
+  }
+
+  #tfo hp-title {
+      opacity: 0; 
+      animation: tfo 2s linear; 
+  }
+  
+  @keyframes tfo {
+      from{
+          opacity: 1;
+      }
+      to{
+          opacity: 0;
+      }
+  }
+
+@keyframes not-chosen-fixed {
+    from{
+        max-width: 16.6%;
+    }
+    to{
+        max-width: 0%;
+    }
+}
+
+hp-chooser.chosen.animate>*:not(.chosen){
+    animation: not-chosen .5s linear;
+}
+
+@keyframes chosen {
+    from {
+        max-width: 20%;
+    }
+    to {
+        max-width: 30%;
+    }
+}
+
+@keyframes not-chosen {
+    from {
+        max-width: 20%;
+        opacity: 1%;
+    }
+    to {
+        max-width: 16.6%;
+        opacity: 0.25;
+    }
+}
+
+@keyframes chosen-fixed {
+    from {
+        max-width: 30%;
+    }
+    to {
+        max-width: 40%;
+    }
+}
+
+path{
+    fill: none;
+    stroke: orange;
+    stroke-width: 1.5vmin;
+}  
